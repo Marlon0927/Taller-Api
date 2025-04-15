@@ -11,16 +11,16 @@ router.post("/estudiantes", (req, res) => {
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
-/*
-//Consultar todos los animales
-router.get("/animals", (req, res) => {
-    animalSchema.find()
+
+//Consultar todos los estudiantes
+router.get("/estudiantes", (req, res) => {
+    estudianteSchema.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
-//Consultar un animal por su id
-router.get("/animals/:id", (req, res) => {
+//Consultar un estudiante por su id
+router.get("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
     animalSchema
         .findById(id)
@@ -28,8 +28,8 @@ router.get("/animals/:id", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
-//Modificar el nombre de un animal por su id
-router.put("/animals/:id", (req, res) => {
+//Modificar el nombre de un estudiante por su id
+router.put("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
     const { nombre, edad, tipo, fecha } = req.body;
     animalSchema
@@ -40,9 +40,9 @@ router.put("/animals/:id", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
-//Eliminar un animal por su id
+//Eliminar un estudiante por su id
 
-router.delete("/animals/:id", (req, res) => {
+router.delete("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
     animalSchema
         .findByIdAndDelete(id)
@@ -52,6 +52,6 @@ router.delete("/animals/:id", (req, res) => {
         .catch((error) => {
             res.json({ message: error });
         });
-});*/
+});
 
 module.exports = router;
