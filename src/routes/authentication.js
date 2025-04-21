@@ -10,6 +10,12 @@ router.post('/signup', async (req, res) => {
     });
     user.clave = await user.encryptClave(user.clave);
     await user.save(); //save es un método de mongoose para guardar datos en MongoDB 
-    res.json(user);
+    //res.json(user);
+    res.json({
+        message: "Usuario guardado."
+    });
+
 });
+
+
 module.exports = router;
