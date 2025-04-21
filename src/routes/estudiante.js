@@ -30,10 +30,10 @@ router.get("/estudiantes/:id", (req, res) => {
 //Modificar el nombre de un estudiante por su id
 router.put("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
-    const { nombre, apellido, codigo, correo, edad, carrera } = req.body;
+    const { nombre, apellido, tipo_doc, num_doc, codigo, correo, edad, carrera, semestre, jornada } = req.body;
     estudianteSchema
         .updateOne({ _id: id }, {
-            $set: { nombre, apellido, codigo, correo, edad, carrera }
+            $set: { nombre, apellido, tipo_doc, num_doc, codigo, correo, edad, carrera, semestre, jornada }
         })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
