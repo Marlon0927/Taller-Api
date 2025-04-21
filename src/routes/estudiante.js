@@ -21,7 +21,7 @@ router.get("/estudiantes", (req, res) => {
 //Consultar un estudiante por su id
 router.get("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
-    animalSchema
+    estudianteSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -30,10 +30,10 @@ router.get("/estudiantes/:id", (req, res) => {
 //Modificar el nombre de un estudiante por su id
 router.put("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
-    const { nombre, edad, tipo, fecha } = req.body;
-    animalSchema
+    const { nombre, apellido, codigo, correo, edad, carrera } = req.body;
+    estudianteSchema
         .updateOne({ _id: id }, {
-            $set: { nombre, edad, tipo, fecha }
+            $set: { nombre, apellido, codigo, correo, edad, carrera }
         })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -42,7 +42,7 @@ router.put("/estudiantes/:id", (req, res) => {
 //Eliminar un estudiante por su id
 router.delete("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
-    animalSchema
+    estudianteSchema
         .findByIdAndDelete(id)
         .then((data) => {
             res.json(data);
