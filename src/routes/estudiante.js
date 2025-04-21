@@ -1,3 +1,4 @@
+const verifyToken = require('./validate_token');
 const express = require("express");
 const router = express.Router(); //manejador de rutas de express
 const estudianteSchema = require("../models/estudiante");
@@ -12,7 +13,7 @@ router.post("/estudiantes", (req, res) => {
 });
 
 //Consultar todos los estudiantes
-router.get("/estudiantes", (req, res) => {
+router.get("/estudiantes", verifyToken, (req, res) => {
     estudianteSchema.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
