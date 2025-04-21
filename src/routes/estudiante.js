@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router(); //manejador de rutas de express
 const estudianteSchema = require("../models/estudiante");
 
-
 //Nuevo estudiante
 router.post("/estudiantes", (req, res) => {
     const estudiante = estudianteSchema(req.body);
@@ -41,7 +40,6 @@ router.put("/estudiantes/:id", (req, res) => {
 });
 
 //Eliminar un estudiante por su id
-
 router.delete("/estudiantes/:id", (req, res) => {
     const { id } = req.params;
     animalSchema
